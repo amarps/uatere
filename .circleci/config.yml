@@ -25,6 +25,9 @@ jobs:
           name: Install gcc
           command: apt-get update && apt-get install -y clang-tidy
       - run:
+          name: Install gcc
+          command: apt-get update && apt-get install -y libncurses-dev
+      - run:
           name: Install cmake
           command: apt-get update && apt-get install -y cmake
       - run:
