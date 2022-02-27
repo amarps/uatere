@@ -13,7 +13,6 @@ Core::Init() {
   cbreak();                /* Line buffering disabled	*/
   keypad(stdscr, TRUE); /* We get F1, F2 etc..		*/
   noecho();             /* Don't echo() while we do getch */
-  GetScreenSize(_screen_size);
   _need_to_quit = false;
 
   return true;
@@ -37,6 +36,3 @@ int Core::GetKey() {
   return _ch;
 }
 
-void Core::GetScreenSize(v2d &screen_size) {
-  getmaxyx(stdscr, screen_size.y, screen_size.x);  
-}

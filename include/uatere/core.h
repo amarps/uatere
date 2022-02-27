@@ -10,10 +10,8 @@ public:
   void Update();
   int Shutdown();
   int GetKey();
-  static void GetScreenSize(v2d &screen_size);
 
 private:
-  v2d _screen_size;
   bool _need_to_quit;
   int _ch;
 };

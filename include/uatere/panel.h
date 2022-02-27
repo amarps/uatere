@@ -2,7 +2,6 @@
 #define UATERE_PANEL_H
 
 #include "common.h"
-#include <string>
 
 struct _win_st;
 typedef _win_st WINDOW;
@@ -11,10 +10,13 @@ typedef panel PANEL;
 
 class Panel{
 public:
-  Panel(v2d size, v2d position, const std::string &title);
+  Panel(v2d size, v2d pos);
   void Update(int keypad);
-  void SetTitle(const std::string &title);
-  void ShowTitle();
+  v2d GetSize();
+  v2d GetPosition();
+  WINDOW* GetWindow();
+  void ReplaceWindow(WINDOW *new_win);
+  PANEL* GetPanel();
 
 private:
   PANEL* _panel;
@@ -22,7 +24,6 @@ private:
 
   v2d _size;
   v2d _position;
-  std::string _title;
 };
 
 #endif
