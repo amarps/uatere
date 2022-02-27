@@ -1,17 +1,16 @@
 #include "uatere/common.h"
 #include "uatere/core.h"
 #include "uatere/panel.h"
+#include "uatere/main-page.h"
 
 int main() {
   Core core;
   core.Init();
 
-  v2d screen_size;
-  Core::GetScreenSize(screen_size);
-  Panel panel1(screen_size, v2d(0,0), "UaTere");
+  Page mainPage("Main Page");
   
   while (!core.NeedToQuit()) {
-	panel1.Update(core.GetKey());
+	mainPage.Update(core.GetKey());
     core.Update();
   }
   core.Shutdown();
