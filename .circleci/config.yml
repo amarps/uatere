@@ -1,0 +1,40 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+
+executors:
+  environment:
+    docker:
+      - image: ubuntu:bionic
+    working_directory:
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+jobs:
+  build:
+    executor: environment
+    steps:
+      - checkout
+      - run:
+          name: Install sudo
+          command: apt-get update && apt-get install -y sudo
+      - run:
+          name: Install gcc
+          command: apt-get update && apt0get install -y gcc g++
+      - run:
+          name: Install cmake
+          command: apt-get update && apt0get install -y cmake
+      - run:
+          name: Creating build directory
+          command: mkdir build && cd build
+      - run:
+          name: Generating build file
+          command: cmake .. -DBUILD_DOC=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+      - run:
+          name: Linting
+          command: cd .. && ./syntax_check.sh
+      - run:
+          name: Building project
+          command: cd build && cmake --build .
+      
+          
