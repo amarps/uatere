@@ -5,7 +5,8 @@
 #include <string>
 
 class MainPage : public Page{
-  using Page::Page;
+public:
+  MainPage();
 };
 
 #endif

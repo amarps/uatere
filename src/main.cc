@@ -7,7 +7,7 @@ int main() {
   Core core;
   core.Init();
 
-  Page mainPage("Main Page");
+  MainPage mainPage;
   
   while (!core.NeedToQuit()) {
 	mainPage.Update(core.GetKey());
