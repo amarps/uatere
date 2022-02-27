@@ -20,10 +20,10 @@ jobs:
           command: apt-get update && apt-get install -y sudo
       - run:
           name: Install gcc
-          command: apt-get update && apt0get install -y gcc g++
+          command: apt-get update && apt-get install -y gcc g++
       - run:
           name: Install cmake
-          command: apt-get update && apt0get install -y cmake
+          command: apt-get update && apt-get install -y cmake
       - run:
           name: Creating build directory
           command: mkdir build && cd build
