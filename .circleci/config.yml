@@ -26,15 +26,14 @@ jobs:
           command: apt-get update && apt-get install -y cmake
       - run:
           name: Creating build directory
-          command: mkdir build && cd build
+          command: mkdir build
       - run:
           name: Generating build file
-          command: cmake .. -DBUILD_DOC=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+          command: cd build && cmake .. -DBUILD_DOC=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
       - run:
           name: Linting
-          command: cd .. && ./syntax_check.sh
+          command: ./syntax_check.sh
       - run:
           name: Building project
           command: cd build && cmake --build .
       
-          
